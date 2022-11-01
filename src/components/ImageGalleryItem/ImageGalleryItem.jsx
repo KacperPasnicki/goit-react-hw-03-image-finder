@@ -1,16 +1,29 @@
 import React from "react";
-export class ImageGallery extends React.Component {
+export const ImageGalleryItem = (props) =>  {
     
-      
+      console.log(props)
     
-    render() {
+    
      
       return (
-        <ul>
+        <div className="ImageGallery">
+            { props.images.map(({ id, largeImageURL, tags }) =>{
+              return (
+      <li className="ImageGalleryItem" key={id}> 
+  <img src= {largeImageURL} alt={tags} className='ImageGalleryItem-image' />
 
-        </ul>
+      </li>
+              
+              )
+            })} 
+        </div>
 
 
       )
-      }
+  
     }
+        
+
+
+      
+      

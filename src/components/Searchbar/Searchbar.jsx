@@ -1,20 +1,21 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 
-
-export class Searchbar extends React.Component {
-    
+export const Searchbar  = (props) => {
+   
       
     
-      render() {
+      
        
         return (
             <header className="Searchbar">
-          <form className='SearchForm' onSubmit={this.props.handleSubmit}
+          <form className='SearchForm' 
+          onSubmit={props.handleGetRequest}
          >
             <label >
             <input className='SearchForm-input'
-       
+            name='searchValue'
             type="text"
             autoComplete="off"
             autoFocus
@@ -22,7 +23,7 @@ export class Searchbar extends React.Component {
             />
             </label>
             <label>
-            <button className='SearchForm-button' type="submit">Search</button>
+            <button className='SearchForm-button' type="submit">&rArr;</button>
             </label>
          
         
@@ -31,5 +32,5 @@ export class Searchbar extends React.Component {
           </header>
         );
       }
-    }
   
+   

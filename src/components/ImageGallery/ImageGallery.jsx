@@ -1,16 +1,17 @@
 import React from "react";
-export class ImageGallery extends React.Component {
+export const ImageGallery = ({children}) => {
     
       
     
-    render() {
+    
      
       return (
-        <li>
-            
-        </li>
+        <ul className="ImageGallery">
+
+          {children}
+           </ul>
 
 
       )
-      }
+  
     }
