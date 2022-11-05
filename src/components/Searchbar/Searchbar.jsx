@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 
 
-export const Searchbar  = (props) => {
+export const Searchbar  = ({handleGetRequest}) => {
    
       
     
@@ -11,7 +11,7 @@ export const Searchbar  = (props) => {
         return (
             <header className="Searchbar">
           <form className='SearchForm' 
-          onSubmit={props.handleGetRequest}
+          onSubmit={handleGetRequest}
          >
             <label >
             <input className='SearchForm-input'

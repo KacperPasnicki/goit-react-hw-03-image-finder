@@ -1,11 +1,21 @@
 import React from "react"
-export class Modal extends React.Component {
-render() {
+
+export const Modal = ({clickedImg, closeImg}) => {
+
     return(
 
-<div class="overlay">
-  <div class="modal">
-    <img src="" alt="" />
-  </div>
-</div>)
+     
+      <div className='Overlay' onClick={() => closeImg()} >
+
+<img className='Modal' src={clickedImg.largeImageURL}
+alt={clickedImg.tags}
+style={{
+    height:'auto',
+    width: '100%'
 }}
+/>
+
+      </div>)
+      
+}
+

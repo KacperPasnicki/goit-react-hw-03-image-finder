@@ -4,6 +4,7 @@ html {
   box-sizing: border-box;
   width: 100vw;
   overflow-x: hidden;
+  background-color: antiquewhite;
 }
 
 *,
@@ -22,6 +23,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+root{
+ 
+}
 img {
   display: block;
   max-width: 100%;
@@ -36,6 +40,7 @@ img {
   grid-template-columns: 1fr;
   grid-gap: 16px;
   padding-bottom: 24px;
+  background-color: antiquewhite;
 }
 
 /*
@@ -146,6 +151,7 @@ img {
   border-radius: 2px;
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+    
 }
 
 .ImageGalleryItem-image {
