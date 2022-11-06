@@ -14,8 +14,9 @@ export const Searchbar  = ({handleGetRequest}) => {
           onSubmit={handleGetRequest}
          >
             <label >
-            <input className='SearchForm-input'
-            name='searchValue'
+            <input
+            className='SearchForm-input'
+            name='inputValue'
             type="text"
             autoComplete="off"
             autoFocus

@@ -1,12 +1,14 @@
 import axios from "axios";
-
-axios.defaults.baseURL = 
-'https://pixabay.com/api/?key=29532345-deb84d68428e9d4fffb51e10d'
 const KEY = '29532345-deb84d68428e9d4fffb51e10d'
+const URL =`https://pixabay.com/api/?key=${KEY}&q=yellow+flowers&image+type=photo`
 
-export const fetchImages = async searchQuery => {
-    const response = axios.get(`/search?query=${searchQuery}`);
-    console.log(response)
-    return response.data.hits;
-   
-  };
+// axios.defaults.baseURL = 
+// 'https://pixabay.com/api/?key=29532345-deb84d68428e9d4fffb51e10d'
+// const KEY = '29532345-deb84d68428e9d4fffb51e10d'
+
+export const API = async (searchValue, page ) => {
+  const response = await axios.get(
+          `https://pixabay.com/api/?key=${KEY}&q=${searchValue}&image+type=photo&page=${page}&per_page=12`
+        );
+        return response.data
+}
