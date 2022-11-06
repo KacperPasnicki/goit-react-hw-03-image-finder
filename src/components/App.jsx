@@ -46,7 +46,7 @@ export class App extends React.Component {
       console.log('componentDidUpdate()')
       try {
         
-      const Api = await API(this.state.searchValue, this.state.page);
+      const Api = await API(this.state.searchValue, this.state.page, 12);
  this.setState(({images}) => ({
         images: [images, ...Api.hits],
         errorMsg: ''
@@ -84,20 +84,20 @@ export class App extends React.Component {
     this.setState({ images: [], searchValue: inputValue, page: 1 });
     form.reset();
   };
+
   closeImg = () => {
     this.setState({isOpen: false})
   }
  
 
   nextPage = () => {
-   
+   this.setState({isLoading:true})
     console.log('nextPage()')
-     this.setState((prevState)=> ({
-      page: prevState + 1
-    })
-               );
-  };
-  
+    
+     this.setState(({page})=> ({
+      page: page + 1
+    }))}
+   
 
 // handleGetRequest = async (e) => {
   
@@ -144,7 +144,7 @@ export class App extends React.Component {
 
 
   render() {
-   const {modalImg, isOpen, isLoading, errorMsg, images} = this.state
+   const {modalImg, isOpen, isLoading, errorMsg, images, page} = this.state
   return (
     <div
     className='App'
@@ -167,15 +167,15 @@ export class App extends React.Component {
   
   }
  <Searchbar handleGetRequest={this.handleSubmit}/>
-
+ {isLoading & (page <= 1) ? <Loader></Loader> :null}
  <ImageGallery>
-  
+ {
+    isLoading & (page >= 2) ? <Loader></Loader> :null  }
     <ImageGalleryItem images={this.state.images}
     onCLick ={this.openModal}
     />
     
-    </ImageGallery>{
-    !isLoading ? null : (<Loader></Loader>)}
+    </ImageGallery>
          
     {images.length === 0 ? null : (
         <Button nextPage={this.nextPage}>

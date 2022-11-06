@@ -4,9 +4,19 @@ import { Oval } from 'react-loader-spinner'
 
 export const Loader = () => {
 return (
+    <div style={{
+        display: 'flex',
+        width: '100%',
+        justifyContent: 'center',
+        position: 'fixed',
+        width: '100%',
+        height: '100%',
+        
+      }}>
 <Oval
-  height={80}
-  width={80}
+     
+  height={100}
+  width={100}
   color="#4fa94d"
   wrapperStyle={{}}
   wrapperClass=""
@@ -17,6 +27,7 @@ return (
   strokeWidthSecondary={2}
 
 />
+</div>
 )
 
 }
