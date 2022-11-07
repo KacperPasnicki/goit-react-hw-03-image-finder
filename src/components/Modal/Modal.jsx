@@ -1,5 +1,5 @@
 import React from "react"
-
+import PropTypes from 'prop-types';
 export const Modal = ({clickedImg, closeImg}) => {
 
     return(
@@ -19,3 +19,7 @@ style={{
       
 }
 
+Modal.propTypes = {
+    clickedImg: PropTypes.object.isRequired,
+    closeImg: PropTypes.func.isRequired
+      }

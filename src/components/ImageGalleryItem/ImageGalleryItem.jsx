@@ -1,5 +1,7 @@
-import { Modal } from "components/Modal/Modal";
-import React, { useState } from "react";
+
+import React from "react";
+import PropTypes from 'prop-types';
+
 export const ImageGalleryItem = ({images, onCLick}) =>  {
    
     
@@ -21,5 +23,8 @@ export const ImageGalleryItem = ({images, onCLick}) =>  {
 
           }
 
-
+          ImageGalleryItem.propTypes = {
+              images: PropTypes.object.isRequired,
+              onCLick: PropTypes.func.isRequired
+                }
           

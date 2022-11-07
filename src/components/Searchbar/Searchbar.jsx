@@ -34,4 +34,8 @@ export const Searchbar  = ({handleGetRequest}) => {
         );
       }
   
-   
+      Searchbar.propTypes = {
+        handleGetRequest: PropTypes.func.isRequired,
+        
+          }
+    

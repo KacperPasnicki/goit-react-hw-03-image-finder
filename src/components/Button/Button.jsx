@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 
 export const Button = ({nextPage}) =>
 
@@ -11,3 +12,8 @@ return (
 
 
 }
+
+Button.propTypes = {
+    nextPage: PropTypes.func.isRequired,
+    
+      }
