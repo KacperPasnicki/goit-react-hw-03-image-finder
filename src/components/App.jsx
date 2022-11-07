@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+
 import { Searchbar } from "./Searchbar/Searchbar";
 
 import {ImageGallery} from './ImageGallery/ImageGallery'
@@ -10,7 +10,7 @@ import { Button } from './Button/Button';
 import {API} from './API/API'
 import { Loader } from './Loader/Loader';
 
-const KEY = '29532345-deb84d68428e9d4fffb51e10d'
+// const KEY = '29532345-deb84d68428e9d4fffb51e10d'
 // const URL =`https://pixabay.com/api/?key=${KEY}&q=yellow+flowers&image+type=photo`
 
 const INITIAL_STATE = {
@@ -144,7 +144,7 @@ export class App extends React.Component {
 
 
   render() {
-   const {modalImg, isOpen, isLoading, errorMsg, images, page} = this.state
+   const {modalImg, isOpen, isLoading, images, page} = this.state
   return (
     <div
     className='App'

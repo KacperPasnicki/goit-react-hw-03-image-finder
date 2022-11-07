@@ -11,7 +11,7 @@ export const Modal = ({clickedImg, closeImg}) => {
 alt={clickedImg.tags}
 style={{
     height:'auto',
-    width: '100%'
+    width: '90%'
 }}
 />
 
