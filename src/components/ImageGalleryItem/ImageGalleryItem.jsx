@@ -9,7 +9,7 @@ export const ImageGalleryItem = ({images, onCLick}) =>  {
       return (
         
              images.map(image => (
-                    <li className="ImageGalleryItem" key={image.id} onClick={()=>onCLick(image.id)}> 
+                    <li  onClick={()=>onCLick(image.id)} key={image.id} className="ImageGalleryItem"> 
   <img src= {image.largeImageURL} alt={image.tags}  className='ImageGalleryItem-image'
   
   />
@@ -24,7 +24,7 @@ export const ImageGalleryItem = ({images, onCLick}) =>  {
           }
 
           ImageGalleryItem.propTypes = {
-              images: PropTypes.object.isRequired,
+              images: PropTypes.array.isRequired,
               onCLick: PropTypes.func.isRequired
                 }
           
