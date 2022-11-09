@@ -1,5 +1,5 @@
 
-import React from "react";
+
 import PropTypes from 'prop-types';
 
 export const ImageGalleryItem = ({images, onCLick}) =>  {
@@ -9,7 +9,7 @@ export const ImageGalleryItem = ({images, onCLick}) =>  {
       return (
         
              images.map(image => (
-                    <li  onClick={()=>onCLick(image.id)} key={image.id} className="ImageGalleryItem"> 
+                    <li onClick={()=>onCLick(image.id)} key={image.id} className="ImageGalleryItem"> 
   <img src= {image.largeImageURL} alt={image.tags}  className='ImageGalleryItem-image'
   
   />

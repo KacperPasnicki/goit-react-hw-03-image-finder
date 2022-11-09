@@ -8,7 +8,7 @@ const KEY = '29532345-deb84d68428e9d4fffb51e10d'
 
 export const API = async (searchValue, page, per_page ) => {
   const response = await axios.get(
-          `https://pixabay.com/api/?key=${KEY}&q=${searchValue}&image+type=photo&page=${page}&per_page=12`
+          `https://pixabay.com/api/?key=${KEY}&q=${searchValue}&image+type=photo&page=${page}&per_page=${per_page}`
         );
         return response.data
 }

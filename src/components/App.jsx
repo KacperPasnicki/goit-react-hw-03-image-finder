@@ -28,11 +28,6 @@ const INITIAL_STATE = {
 export class App extends React.Component {
   state = { ...INITIAL_STATE };
 
-  async componentDidMount() {
-    console.log('on start')
-    
-    this.setState({ images: [], page: 1 });
-  }
 
   
  async componentDidUpdate(prevProps, prevState)
@@ -48,7 +43,7 @@ export class App extends React.Component {
         
       const Api = await API(this.state.searchValue, this.state.page, 12);
  this.setState(({images}) => ({
-        images: [images, ...Api.hits],
+        images: [...images, ...Api.hits],
         errorMsg: ''
       }));
     } catch (error) {
@@ -61,6 +56,11 @@ export class App extends React.Component {
     
   }
   
+}
+async componentDidMount() {
+  console.log('on start')
+  
+  this.setState({ images: [], page: 1 });
 }
 
 
@@ -75,7 +75,7 @@ export class App extends React.Component {
       this.setState(state => ({isOpen:true, modalImg: Img}))
   }
 
-  handleSubmit = e => {
+  handleGetRequest = e => {
     
     e.preventDefault();
     console.log('submit')
@@ -144,7 +144,7 @@ export class App extends React.Component {
 
 
   render() {
-   const {modalImg, isOpen, isLoading, images, page} = this.state
+   const {images, modalImg, isOpen, isLoading,  page} = this.state
   return (
     <div
     className='App'
@@ -166,21 +166,22 @@ export class App extends React.Component {
     />) : null
   
   }
- <Searchbar handleGetRequest={this.handleSubmit}/>
- {isLoading & (page <= 1) ? <Loader></Loader> :null}
+ <Searchbar handleGetRequest={this.handleGetRequest}/>
+ {isLoading && (page <= 1) ? <Loader/> :null}
  <ImageGallery>
- {
-    isLoading & (page >= 2) ? <Loader></Loader> :null  }
-    <ImageGalleryItem images={this.state.images}
+ 
+    <ImageGalleryItem images={images}
     onCLick ={this.openModal}
+     loading={isLoading}
     />
     
     </ImageGallery>
-         
+    {
+    isLoading && (page >= 2) ? <Loader/> :null  }   
     {images.length === 0 ? null : (
-        <Button nextPage={this.nextPage}>
+        <Button nextPage={this.nextPage}/>
           
-        </Button>
+       
     )}
     </div> 
   );
